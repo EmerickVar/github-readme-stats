@@ -1,0 +1,21 @@
+name: Yita APK Builder
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - 'yita-apk-build/**'
+      - '.github/workflows/yita-apk-build.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe runner
+        run: |
+          echo "runner ok"
+          java -version
+          uname -a

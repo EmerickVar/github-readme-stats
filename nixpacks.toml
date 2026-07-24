@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ["nodejs_22", "jdk17", "curl", "unzip"]
+
+[phases.install]
+cmds = ["npm ci --ignore-scripts"]
+
+[phases.build]
+cmds = ["bash yita-build/build-apk.sh"]
+
+[start]
+cmd = "node server.js"

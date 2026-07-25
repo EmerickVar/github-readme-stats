@@ -1,0 +1,26 @@
+name: Yita Android Builder
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - 'yita-android/**'
+      - '.github/workflows/yita-android-build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Probe runner
+        shell: bash
+        run: |
+          set -euxo pipefail
+          uname -a
+          java -version
+          df -h
+          echo YITA_ANDROID_RUNNER_OK
